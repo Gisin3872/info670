@@ -1,2 +1,2 @@
-# info670
+# info670apps
 INFO 670 Repository

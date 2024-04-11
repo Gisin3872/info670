@@ -3,4 +3,4 @@ INFO 670 Repository
 
 Matt Gisin
 
-![appRepo](/GisinReactNative/GisinINFO670ss.png "Name in App")
+![Assignment1](/info670/GisinINFO670ss.png?raw=true "androidSS")

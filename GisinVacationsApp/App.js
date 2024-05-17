@@ -1,5 +1,5 @@
 import React from 'react';
-import AppNavigator from './navigation/AppNavigator';
+import AppNavigator from './src/navigation/AppNavigator';
 import { DefaultTheme } from 'react-native-paper';
 import { Provider } from 'react-native-paper';
 

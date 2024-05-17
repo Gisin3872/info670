@@ -1,7 +1,12 @@
 import React from 'react';
+import Gallery from '../Components/Gallery';
 
 const GalleryScreen = () => {
-  const images = ['url1', 'url2', 'url3']; // replace with actual image urls
+  const images = [
+    require('./Pictures/1.jpg'),
+    require('./Pictures/2.jpg'),
+    require('./Pictures/3.jpg')
+  ];
   return <Gallery images={images} />;
 };
 

@@ -7,8 +7,7 @@ const Gallery = ({ images }) => (
       data={images}
       renderItem={({ item }) => (
         <View>
-          <Image source={{ uri: item.url }} />
-          <Text>{item.title}</Text>
+          <Image source={item} style={{width: '100%', height: 200}} />
         </View>
       )}
       keyExtractor={(item, index) => index.toString()}

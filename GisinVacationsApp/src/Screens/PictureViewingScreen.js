@@ -1,5 +1,5 @@
 import React from 'react';
-import PictureViewer from '../components/PictureViewer';
+import PictureViewer from '../Components/PictureViewer';
 
 const PictureViewingScreen = () => {
   const image = 'url'; // replace with actual image url

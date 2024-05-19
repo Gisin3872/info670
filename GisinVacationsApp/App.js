@@ -1,25 +1,32 @@
 import React from 'react';
-import AppNavigator from './src/Navigation/AppNavigator';
-import { DefaultTheme } from 'react-native-paper';
-import { Provider } from 'react-native-paper';
+import { Provider as PaperProvider } from 'react-native-paper';
+import Gallery from '../Components/Gallery';
+import PictureViewer from '../Components/PictureViewer';
+import GalleryHomeScreen from '../Screens/GalleryHomeScreen';
+import AppNavigator from '../Navigation/AppNavigator';
+import PictureViewingScreen from '../Screens/PictureViewingScreen';
+import ProfileScreen from '../Screens/ProfileScreen';
 
 const theme = {
   ...DefaultTheme,
-  roundness: 2,
   colors: {
     ...DefaultTheme.colors,
-    primary: '#1DB954',
-    accent: '#1DB954',
-    background: 'black',
-    text: 'white',
-    placeholder: 'gray',
+    primary: '#1DB954', 
+    accent: '#1DB954', 
+    background: '#121212', 
+    text: '#FFFFFF', 
   },
 };
 
 export default function App() {
   return (
-    <Provider theme={theme}>
+    <PaperProvider theme={theme}>
       <AppNavigator />
-    </Provider>
+      <Gallery />
+      <PictureViewer />
+      <GalleryHomeScreen />
+      <PictureViewingScreen />
+      <ProfileScreen />
+    </PaperProvider>
   );
 }

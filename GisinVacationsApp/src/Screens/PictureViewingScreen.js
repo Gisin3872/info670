@@ -1,10 +1,11 @@
 import React, { useLayoutEffect } from 'react';
 import { View, Image, Text, StyleSheet } from 'react-native';
+import PictureViewer from '../Components/PictureViewer'; // import PictureViewer component
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10, // Add padding around the image
+    padding: 10,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
@@ -12,11 +13,11 @@ const styles = StyleSheet.create({
   image: {
     width: '100%',
     height: 200,
-    marginBottom: 10, // Add some space below the image
+    marginBottom: 10,
   },
   caption: {
-    fontSize: 18, // Increase the font size for better legibility
-    textAlign: 'center', // Center the text
+    fontSize: 18,
+    textAlign: 'center',
   },
 });
 
@@ -25,17 +26,16 @@ const PictureViewingScreen = ({ route, navigation }) => {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      title: item.name, // Set the header title as the image title
+      title: item.name,
     });
   }, [navigation, item.name]);
 
   return (
     <View style={styles.container}>
-      <Image source={item.source} style={styles.image} />
+      <PictureViewer image={item.source} /> // use PictureViewer component
       <Text style={styles.caption}>{item.caption}</Text>
     </View>
   );
 };
 
 export default PictureViewingScreen;
-

@@ -1,68 +1,39 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Alert } from 'react-native';
-import { TextInput, Button, Text } from 'react-native-paper';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
+import GalleryHomeScreen from '../Screens/GalleryHomeScreen';
+import PictureViewingScreen from '../Screens/PictureViewingScreen';
+import ProfileScreen from '../Screens/ProfileScreen';
 
-const ProfileScreen = () => {
+const Tab = createMaterialBottomTabNavigator();
+const GalleryStack = createStackNavigator();
+const ProfileStack = createStackNavigator();
+
+const GalleryStackScreen = () => (
+  <GalleryStack.Navigator>
+    <GalleryStack.Screen name="My Trips" component={GalleryHomeScreen} />
+    <GalleryStack.Screen name="PictureViewing" component={PictureViewingScreen} />
+  </GalleryStack.Navigator>
+);
+
+const ProfileStackScreen = ({ name, email, setName, setEmail }) => (
+  <ProfileStack.Navigator>
+    <ProfileStack.Screen name="Profile">
+      {props => <ProfileScreen {...props} name={name} email={email} setName={setName} setEmail={setEmail} />}
+    </ProfileStack.Screen>
+  </ProfileStack.Navigator>
+);
+
+export default function AppNavigator() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 
-  const validateInputs = () => {
-    const emailRegex = /^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$/;
-    if (!emailRegex.test(email)) {
-      Alert.alert('Improper format', 'Please enter a valid email.');
-      return;
-    }
-    if (!name.includes(' ')) {
-      Alert.alert('Improper format', 'Please enter both first and last name.');
-      return;
-    }
-    console.log('Inputs are valid');
-  }
-
   return (
-    <View style={styles.container}>
-      <Text style={styles.label}>User Name</Text>
-      <TextInput
-        label="Name"
-        value={name}
-        onChangeText={setName}
-        mode="outlined"
-        style={styles.input}
-      />
-      <Text style={styles.label}>User Email</Text>
-      <TextInput
-        label="Email"
-        value={email}
-        onChangeText={setEmail}
-        mode="outlined"
-        style={styles.input}
-      />
-      <Button mode="contained" style={styles.button} onPress={validateInputs}>
-        Save
-      </Button>
-    </View>
+    <Tab.Navigator>
+      <Tab.Screen name="Gallery" component={GalleryStackScreen} />
+      <Tab.Screen name="Profile">
+        {props => <ProfileStackScreen {...props} name={name} email={email} setName={setName} setEmail={setEmail} />}
+      </Tab.Screen>
+    </Tab.Navigator>
   );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    backgroundColor: '#F5F5F5'
-  },
-  label: {
-    fontSize: 18,
-    marginTop: 20,
-    color: '#333'
-  },
-  input: {
-    backgroundColor: 'white',
-    marginTop: 10
-  },
-  button: {
-    marginTop: 30
-  }
-});
-
-export default ProfileScreen;
-
+}

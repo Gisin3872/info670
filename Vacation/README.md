@@ -1,7 +1,7 @@
-This mobile application serves as a digital photo journal of a significant journey to Bali. It boasts a streamlined, user-oriented interface that facilitates seamless navigation between various screens.
+The mobile application presented here is a digital photo journal with pictures from my trip to Bali. It allows for the user to navigate between different screens seamlessly and store their profile locally.
 
-The core screen, the Gallery, presents a curated collection of images from the trip. Each photo is displayed with a thumbnail and a descriptive caption. Selecting an image redirects the user to the Picture Viewing screen, where the chosen image can be viewed in its full dimensions.
+The Gallery, which is the main screen of the app, showcases 4 images from the trip. Each image is accompanied by a thumbnail, providing context to the respective photo. On selecting an image, the user is brought to a Picture Viewing screen, where they can view the selected image in its full dimensions and a caption that tells us more about the photo.
 
-Additionally, the application provides a Profile screen where users can view and edit their profile information. This section encompasses numerous fields and user interface components. Any modifications made to the profile are stored locally, ensuring data privacy.
+The application also has a Profile screen, which provides a space for users to view and modify their profile information. Any changes made to the profile are saved locally.
 
-The design and functionality of this application reflect a comprehensive understanding of advanced user interface features in mobile application development. Through the effective implementation of custom components, multi-screen navigation, third-party user interface frameworks such as React Native Paper, and local data storage, a robust and engaging user experience has been successfully achieved.
+Theres a use of custom components, multi-screen navigation, third-party user interface frameworks (like React Native Paper), and local data storage.
